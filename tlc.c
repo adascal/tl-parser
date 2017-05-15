@@ -62,9 +62,6 @@ void usage (void) {
 }
 
 int vkext_write (const char *filename) {
-<<<<<<< HEAD
-  int f = open (filename, O_CREAT | O_WRONLY | O_TRUNC | O_BINARY, 0640);
-=======
 #if defined(_MSC_VER) && _MSC_VER >= 1400
   int f = 0;
   assert(_sopen_s(&f, filename, _O_CREAT | _O_WRONLY | _O_TRUNC | _O_BINARY, _SH_DENYNO, _S_IREAD | _S_IWRITE) == 0);
@@ -73,7 +70,6 @@ int vkext_write (const char *filename) {
   assert(f >= 0);
 #else
   int f = open (filename, O_CREAT | O_WRONLY | O_TRUNC, 0640);
->>>>>>> origin/master
   assert (f >= 0);
 #endif
   write_types (f);
